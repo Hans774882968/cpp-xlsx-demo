@@ -17,6 +17,11 @@ void read_data(Sheet* sheet) {
         double d = sheet->readNum(row, col);
         ans += d;
       }
+      // 实测 libxl 把A1单元格改了，要求你氪金
+      if (cellType == CELLTYPE_STRING) {
+        std::cout << row << " " << col << " " << sheet->readStr(row, col)
+                  << std::endl;
+      }
     }
   }
   std::cout << "ans = " << ans << std::endl;
